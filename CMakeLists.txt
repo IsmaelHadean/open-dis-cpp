@@ -53,12 +53,12 @@ else(WIN32)
 endif(WIN32)
 
 # Define ExampleSender Executable
-add_executable(ExampleSender ${EX_SENDER_SOURCES})
+# add_executable(ExampleSender ${EX_SENDER_SOURCES})
 # Link OpenDIS into ExampleSender
-target_link_libraries(ExampleSender PRIVATE OpenDIS6)
-target_link_libraries(ExampleSender PRIVATE ${SDL_LIBS})
+# target_link_libraries(ExampleSender PRIVATE OpenDIS6)
+# target_link_libraries(ExampleSender PRIVATE ${SDL_LIBS})
 # add src to ExampleSender include directories
-target_include_directories(ExampleSender PRIVATE src)
+# target_include_directories(ExampleSender PRIVATE src)
 
 # create list of ExampleReceiver source files
 file(GLOB EX_RECEIVER_SOURCES
