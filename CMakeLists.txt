@@ -70,12 +70,12 @@ file(GLOB EX_RECEIVER_SOURCES
 )
 
 # Define ExampleReceiver Executable
-add_executable(ExampleReceiver ${EX_RECEIVER_SOURCES})
+# add_executable(ExampleReceiver ${EX_RECEIVER_SOURCES})
 # Link OpenDIS into ExampleReceiver
-target_link_libraries(ExampleReceiver PRIVATE OpenDIS6)
-target_link_libraries(ExampleReceiver PRIVATE ${SDL_LIBS})
+# target_link_libraries(ExampleReceiver PRIVATE OpenDIS6)
+# target_link_libraries(ExampleReceiver PRIVATE ${SDL_LIBS})
 # add src to ExampleSender include directories
-target_include_directories(ExampleReceiver PRIVATE src)
+# target_include_directories(ExampleReceiver PRIVATE src)
 
 # Configuring SDL2
 #--------------------------------------------------------------------------------------
@@ -83,11 +83,11 @@ target_include_directories(ExampleReceiver PRIVATE src)
 # If SDL_INC_DIR declared (by user via -D flag)
 if(SDL_INC_DIR)
   # Inform the user we will use the their specified SDL_INC_DIR
-  message("Using SDL2 include directory defined with -DSDL_INC_DIR")
-  message("\tvalue: ${SDL_INC_DIR}")
+  # message("Using SDL2 include directory defined with -DSDL_INC_DIR")
+  # message("\tvalue: ${SDL_INC_DIR}")
   # Add SDL_INC_DIR to the include directories for both exampe apps
-  target_include_directories(ExampleSender PUBLIC ${SDL_INC_DIR})
-  target_include_directories(ExampleReceiver PUBLIC ${SDL_INC_DIR})
+  # target_include_directories(ExampleSender PUBLIC ${SDL_INC_DIR})
+  # target_include_directories(ExampleReceiver PUBLIC ${SDL_INC_DIR})
 else(SDL_INC_DIR)
   # Otherwise, try get SDL2 Compiler Flags from sdl2-config
   execute_process(
@@ -111,17 +111,17 @@ else(SDL_INC_DIR)
     else(WIN32)
       separate_arguments(SDL_CFLAGS WINDOWS_COMMAND "${SDL_CFLAGS}")
     endif(WIN32)
-    target_compile_options(ExampleSender PRIVATE "${SDL_CFLAGS}")
-    target_compile_options(ExampleReceiver PRIVATE "${SDL_CFLAGS}")
+    # target_compile_options(ExampleSender PRIVATE "${SDL_CFLAGS}")
+    # target_compile_options(ExampleReceiver PRIVATE "${SDL_CFLAGS}")
   endif(SDL_CERR)
 endif(SDL_INC_DIR)
 
 # If SDL_LIB_DIR declared (by user via -D flag)
 if(SDL_LIB_DIR)
-  message("Using SDL2 include directory defined with -DSDL_LIB_DIR")
-  message("\tvalue: ${SDL_LIB_DIR}")
-  target_link_directories(ExampleSender PUBLIC ${SDL_LIB_DIR})
-  target_link_directories(ExampleReceiver PUBLIC ${SDL_LIB_DIR})
+  # message("Using SDL2 include directory defined with -DSDL_LIB_DIR")
+  # message("\tvalue: ${SDL_LIB_DIR}")
+  # target_link_directories(ExampleSender PUBLIC ${SDL_LIB_DIR})
+  # target_link_directories(ExampleReceiver PUBLIC ${SDL_LIB_DIR})
 else(SDL_LIB_DIR)
   # Otherwise, try get SDL2 Library Flags from sdl2-config
   execute_process(
@@ -145,8 +145,8 @@ else(SDL_LIB_DIR)
     else(WIN32)
       separate_arguments(SDL_LFLAGS WINDOWS_COMMAND "${SDL_LFLAGS}")
     endif(WIN32)
-    target_link_libraries(ExampleSender PRIVATE "${SDL_LFLAGS}")
-    target_link_libraries(ExampleReceiver PRIVATE "${SDL_LFLAGS}")
+    # target_link_libraries(ExampleSender PRIVATE "${SDL_LFLAGS}")
+    # target_link_libraries(ExampleReceiver PRIVATE "${SDL_LFLAGS}")
   endif(SDL_LERR)
 endif(SDL_LIB_DIR)
 
@@ -162,7 +162,7 @@ install(TARGETS OpenDIS6 EXPORT OpenDIS6Config DESTINATION "${LIBDIR}")
 install(EXPORT OpenDIS6Config DESTINATION "lib/cmake/OpenDIS6")
 install(TARGETS OpenDIS7 EXPORT OpenDIS7Config DESTINATION "${LIBDIR}")
 install(EXPORT OpenDIS7Config DESTINATION "lib/cmake/OpenDIS7")
-install(TARGETS ExampleReceiver ExampleSender DESTINATION "bin")
+# install(TARGETS ExampleReceiver ExampleSender DESTINATION "bin")
 install(DIRECTORY src/ DESTINATION "include"
         FILES_MATCHING PATTERN "*.h"
 )
